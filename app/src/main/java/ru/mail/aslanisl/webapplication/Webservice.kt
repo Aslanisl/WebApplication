@@ -44,6 +44,6 @@ object Webservice {
         val buttonString = array[1].trim()
         val href = "href=\""
         val startIndex = buttonString.indexOf(href) + href.length
-        return buttonString.substring(startIndex, buttonString.indexOf("\">", startIndex, true))
+        return buttonString.substring(startIndex, buttonString.indexOf("\"", startIndex, true))
     }
 }
