@@ -1,0 +1,12 @@
+.gradle
+/local.properties
+/gradle.properties
+/.idea
+.DS_Store
+/build
+/captures
+*.keystore
+*.iml
+*/build
+*/projectFilesBackup
+*/main_icon.png
