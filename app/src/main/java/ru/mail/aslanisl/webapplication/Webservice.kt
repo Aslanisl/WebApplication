@@ -1,6 +1,5 @@
 package ru.mail.aslanisl.webapplication
 
-import android.util.Log
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,8 +39,11 @@ object Webservice {
      */
     private fun getButtonLink(html: String?, buttonName: String): String {
         if (html == null) return ""
-        val buttonString = "a class=\"$buttonName\" href=\""
-        val startIndex = html.indexOf(buttonString) + buttonString.length
-        return html.substring(startIndex, html.indexOf("\"", startIndex, true))
+        val array = html.split("\"$buttonName\"")
+        if (array.size <= 1) return ""
+        val buttonString = array[1].trim()
+        val href = "href=\""
+        val startIndex = buttonString.indexOf(href) + href.length
+        return buttonString.substring(startIndex, buttonString.indexOf("\">", startIndex, true))
     }
 }
